@@ -14,7 +14,12 @@ import OrderGuide from './components/about/OrderGuide'
 import Phone from './components/about/contact/Phone'
 import PersonName from './components/about/contact/PersonName'
 export const routes = [
-  { path: '/', name: "homeLink", component: Home },
+  { path: '/', name: "homeLink", components:{
+    default:Home,
+    'orderGuide' :OrderGuide,
+    'delivery':Delivery,
+    'history':History
+  } },
   { path: '/menu', component: Menu },
   {
     path: '/admin', component: Admin,
