@@ -14,29 +14,16 @@ import OrderGuide from './components/about/OrderGuide'
 import Phone from './components/about/contact/Phone'
 import PersonName from './components/about/contact/PersonName'
 export const routes = [
-  { path: '/', name: "homeLink", components:{
-    default:Home,
-    'orderGuide' :OrderGuide,
-    'delivery':Delivery,
-    'history':History
-  } },
-  { path: '/menu', component: Menu },
   {
-    path: '/admin', component: Admin,
-    // beforeEnter: (to, from, next) => {
-    //路由独享守卫
-    // alert("非登陆状态，无法访问");
-    // next(false);
-    //判断store.gettes.isLogin ===false
-    //     if (to.path == '/login' || to.path == '/register') {
-    //       next();
-    //     } else {
-    //       alert("还没有登录，请先登录！");
-    //       next('/login');
-
-    //     }
-    // }
+    path: '/', name: "homeLink", components: {
+      default: Home,
+      'orderGuide': OrderGuide,
+      'delivery': Delivery,
+      'history': History
+    }
   },
+  { path: '/menu', component: Menu },
+  { path: '/admin', component: Admin },
   {
     path: '/about', redirect: '/about/contact', component: About, children: [
       {
