@@ -10,8 +10,9 @@ export const store = new Vuex.Store({
             { name: "马容", price: 10 },
         ]
     },
+    //一般的改变数据
     getters: {
-        saleProducts : (state) => {
+        saleProducts: (state) => {
             var saleProducts = state.products.map(product => {
                 return {
                     name: "**" + product.name + "**",
@@ -22,5 +23,15 @@ export const store = new Vuex.Store({
             })
             return saleProducts;
         }
+    },
+    //MUTATION 触发事件改变数据
+    mutations: {
+        reducePrice: (state)=> {
+            state.products.forEach(product => {
+                product.price -= 1;
+            })
+        }
+
     }
+
 })
