@@ -26,10 +26,28 @@ export const store = new Vuex.Store({
     },
     //MUTATION 触发事件改变数据
     mutations: {
-        reducePrice: (state)=> {
-            state.products.forEach(product => {
-                product.price -= 1;
-            })
+
+
+        reducePrice: (state,payload) => {
+            //方法已经触发了，但是数据还没有变化，这种方式不好，可以用action
+            // setTimeout(function () {
+                state.products.forEach(product => {
+                    product.price -= payload;
+                })
+
+            // }, 3000)
+
+        }
+
+    },
+    //action 异步
+    actions:{
+        reducePrice:(context,payload)=>{
+            setTimeout(function(){
+                context.commit("reducePrice",payload);
+
+
+            },3000)
         }
 
     }
